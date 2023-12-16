@@ -1,0 +1,39 @@
+{
+    "components": {
+        "units": {
+            "Corki": {
+                "cost": 1,
+                "traits": ["8-bit", "Big Shot"]
+            },
+            "Nami": {
+                "cost": 1,
+                "traits": ["Dazzler", "Disco"]
+            },
+            "Taric": {
+                "cost": 1,
+                "traits": ["Disco", "Guardian"]
+            },
+            "Twisted Fate": {
+                "cost": 4,
+                "traits": ["Dazzler", "Disco"]
+            }
+        },
+        "traits": {
+            "8-bit": {
+                "group_sizes": [2, 4, 6]
+            },
+            "Big Shot": {
+                "group_sizes": [2, 4, 6]
+            },
+            "Dazzler": {
+                "group_sizes": [2, 4, 6]
+            },
+            "Disco": {
+                "group_sizes": [3, 4, 5, 6]
+            },
+            "Guardian": {
+                "group_sizes": [2, 4, 6]
+            }
+        }
+    }
+}
