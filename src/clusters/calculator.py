@@ -96,7 +96,7 @@ class Cluster:
             if trait_score:
                 trait_scores[trait] = {"score": trait_score, "group_size": counter}
         if alt_cluster is None:
-            self.trait_scores = counters
+            self.trait_scores = trait_scores
         return score
 
     @property
