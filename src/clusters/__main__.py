@@ -12,7 +12,7 @@ def main():
     clusters = calculator.calculate_clusters(duplicate_unit_filter="Akali")
 
     with open(save_path, "w") as f:
-        f.write('\n'.join('{},{},{}'.format(x[0],x[1],x[2]) for x in clusters))
+        f.write('\n'.join('{},{},{}'.format(x[0],x[1],";".join(y.name for y in x[2])) for x in clusters))
 
 
 if __name__ == "__main__":
