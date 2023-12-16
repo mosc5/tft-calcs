@@ -1,6 +1,18 @@
 {
     "components": {
         "units": {
+            "Ahri": {
+                "cost": 1,
+                "traits": ["K/DA", "Spellweaver"]
+            },
+            "Akali K/DA": {
+                "cost": 1,
+                "traits": ["K/DA", "Executioner"]
+            },
+            "Akali True Damage": {
+                "cost": 1,
+                "traits": ["True Damage", "Executioner"]
+            },
             "Corki": {
                 "cost": 1,
                 "traits": ["8-bit", "Big Shot"]
@@ -31,8 +43,20 @@
             "Disco": {
                 "group_sizes": [3, 4, 5, 6]
             },
+            "Executioner": {
+                "group_sizes": [2, 4, 6]
+            },
             "Guardian": {
                 "group_sizes": [2, 4, 6]
+            },
+            "K/DA": {
+                "group_sizes": [3, 5, 7, 10]
+            },
+            "Spellweaver": {
+                "group_sizes": [3, 5, 7, 10]
+            },
+            "True Damage": {
+                "group_sizes": [2, 4, 6, 9]
             }
         }
     }
