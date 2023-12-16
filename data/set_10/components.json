@@ -2,32 +2,244 @@
     "components": {
         "units": {
             "Ahri": {
-                "cost": 1,
+                "cost": 4,
                 "traits": ["K/DA", "Spellweaver"]
             },
             "Akali K/DA": {
-                "cost": 1,
+                "cost": 4,
                 "traits": ["K/DA", "Executioner"]
             },
             "Akali True Damage": {
-                "cost": 1,
+                "cost": 4,
                 "traits": ["True Damage", "Executioner"]
+            },
+            "Amumu": {
+                "cost": 3,
+                "traits": ["Emo", "Guardian"]
+            },
+            "Annie": {
+                "cost": 1,
+                "traits": ["Emo", "Spellweaver"]
+            },
+            "Aphelios": {
+                "cost": 2,
+                "traits": ["Heartsteel", "Rapidfire"]
+            },
+            "Bard": {
+                "cost": 2,
+                "traits": ["Jazz", "Dazzler"]
+            },
+            "Blitzcrank": {
+                "cost": 4,
+                "traits": ["Disco", "Sentinel"]
+            },
+            "Caitlyn": {
+                "cost": 4,
+                "traits": ["8-bit", "Rapidfire"]
             },
             "Corki": {
                 "cost": 1,
                 "traits": ["8-bit", "Big Shot"]
             },
+            "Ekko": {
+                "cost": 3,
+                "traits": ["True Damage", "Sentinel", "Spellweaver"]
+            },
+            "Evelynn": {
+                "cost": 1,
+                "traits": ["K/DA", "Crowd Diver"]
+            },
+            "Ezreal": {
+                "cost": 4,
+                "traits": ["Heartsteel", "Big Shot"]
+            },
+            "Garen": {
+                "cost": 2,
+                "traits": ["8-bit", "Sentinel"]
+            },
+            "Gnar": {
+                "cost": 2,
+                "traits": ["Pentakill", "Mosher", "Superfan"]
+            },
+            "Gragas": {
+                "cost": 2,
+                "traits": ["Disco", "Spellweaver", "Bruiser"]
+            },
+            "Illaoi": {
+                "cost": 5,
+                "traits": ["Bruiser"]
+            },
+            "Jax": {
+                "cost": 2,
+                "traits": ["EDM", "Mosher"]
+            },
+            "Jhin": {
+                "cost": 5,
+                "traits": ["Big Shot"]
+            },
+            "Jinx": {
+                "cost": 1,
+                "traits": ["Punk", "Rapidfire"]
+            },
+            "K'Sante": {
+                "cost": 1,
+                "traits": ["Heartsteel", "Sentinel"]
+            },
+            "Kaisa": {
+                "cost": 2,
+                "traits": ["K/DA", "Big Shot"]
+            },
+            "Karthus": {
+                "cost": 4,
+                "traits": ["Pentakill", "Executioner"]
+            },
+            "Katarina": {
+                "cost": 2,
+                "traits": ["Country", "Crowd Diver"]
+            },
+            "Kayle": {
+                "cost": 2,
+                "traits": ["Pentakill", "Edgelord"]
+            },
+            "Kayn": {
+                "cost": 5,
+                "traits": ["Heartsteel", "Edgelord"]
+            },
+            "Kennen": {
+                "cost": 1,
+                "traits": ["True Damage", "Guardian", "Superfan"]
+            },
+            "Lillia": {
+                "cost": 1,
+                "traits": ["K/DA", "Sentinel", "Superfan"]
+            },
+            "Lucian": {
+                "cost": 5,
+                "traits": ["Jazz", "Rapidfire"]
+            },
+            "Lulu": {
+                "cost": 3,
+                "traits": ["Hyperpop", "Spellweaver"]
+            },
+            "Lux": {
+                "cost": 3,
+                "traits": ["EDM", "Dazzler"]
+            },
+            "Miss Fortune": {
+                "cost": 3,
+                "traits": ["Jazz", "Big Shot"]
+            },
+            "Mordekaiser": {
+                "cost": 3,
+                "traits": ["Pentakill", "Sentinel"]
+            },
             "Nami": {
                 "cost": 1,
                 "traits": ["Dazzler", "Disco"]
+            },
+            "Neeko": {
+                "cost": 3,
+                "traits": ["K/DA", "Guardian", "Superfan"]
+            },
+            "Olaf": {
+                "cost": 1,
+                "traits": ["Pentakill", "Bruiser"]
+            },
+            "Pantheon": {
+                "cost": 2,
+                "traits": ["Punk", "Guardian"]
+            },
+            "Poppy": {
+                "cost": 4,
+                "traits": ["Emo", "Mosher"]
+            },
+            "Qiyana": {
+                "cost": 5,
+                "traits": ["True Damage", "Crowd Diver"]
+            },
+            "Riven": {
+                "cost": 3,
+                "traits": ["8-bit", "Edgelord"]
+            },
+            "Samira": {
+                "cost": 3,
+                "traits": ["Country", "Executioner"]
+            },
+            "Senna": {
+                "cost": 2,
+                "traits": ["True Damage", "Rapidfire"]
+            },
+            "Seraphine": {
+                "cost": 2,
+                "traits": ["K/DA", "Spellweaver"]
+            },
+            "Sett": {
+                "cost": 3,
+                "traits": ["Heartsteel", "Bruiser", "Mosher"]
+            },
+            "Sona": {
+                "cost": 5,
+                "traits": ["Spellweaver"]
+            },
+            "Tahm Kench": {
+                "cost": 1,
+                "traits": ["Country", "Bruiser"]
             },
             "Taric": {
                 "cost": 1,
                 "traits": ["Disco", "Guardian"]
             },
+            "Thresh": {
+                "cost": 4,
+                "traits": ["Country", "Guardian"]
+            },
             "Twisted Fate": {
                 "cost": 4,
                 "traits": ["Dazzler", "Disco"]
+            },
+            "Twitch": {
+                "cost": 2,
+                "traits": ["Punk", "Executioner"]
+            },
+            "Urgot": {
+                "cost": 3,
+                "traits": ["Country", "Mosher"]
+            },
+            "Vex": {
+                "cost": 3,
+                "traits": ["Emo", "Executioner"]
+            },
+            "Vi": {
+                "cost": 1,
+                "traits": ["Punk", "Mosher"]
+            },
+            "Viego": {
+                "cost": 4,
+                "traits": ["Pentakill", "Edgelord"]
+            },
+            "Yasuo": {
+                "cost": 1,
+                "traits": ["True Damage", "Edgelord"]
+            },
+            "Yone": {
+                "cost": 3,
+                "traits": ["Heartsteel", "Edgelord", "Crowd Diver"]
+            },
+            "Yorick": {
+                "cost": 5,
+                "traits": ["Mosher", "Guardian", "Pentakill"]
+            },
+            "Zac": {
+                "cost": 4,
+                "traits": ["EDM", "Bruiser"]
+            },
+            "Zed": {
+                "cost": 4,
+                "traits": ["EDM", "Crowd Diver"]
+            },
+            "Ziggs": {
+                "cost": 5,
+                "traits": ["Hyperpop", "Spellweaver"]
             }
         },
         "traits": {
@@ -37,11 +249,29 @@
             "Big Shot": {
                 "group_sizes": [2, 4, 6]
             },
+            "Bruiser": {
+                "group_sizes": [2, 4, 6]
+            },
+            "Country": {
+                "group_sizes": [3, 5, 7]
+            },
+            "Crowd Diver": {
+                "group_sizes": [2, 4, 6]
+            },
             "Dazzler": {
                 "group_sizes": [2, 4, 6]
             },
             "Disco": {
                 "group_sizes": [3, 4, 5, 6]
+            },
+            "Edgelord": {
+                "group_sizes": [3, 5, 7]
+            },
+            "EDM": {
+                "group_sizes": [2, 3, 4, 5]
+            },
+            "Emo": {
+                "group_sizes": [2, 4, 6]
             },
             "Executioner": {
                 "group_sizes": [2, 4, 6]
@@ -49,11 +279,38 @@
             "Guardian": {
                 "group_sizes": [2, 4, 6]
             },
+            "Heartsteel": {
+                "group_sizes": [3, 5, 7, 10]
+            },
+            "Hyperpop": {
+                "group_sizes": [1, 2, 3, 4]
+            },
+            "Jazz": {
+                "group_sizes": [2, 3, 4]
+            },
             "K/DA": {
                 "group_sizes": [3, 5, 7, 10]
             },
+            "Mosher": {
+                "group_sizes": [2, 4, 6]
+            },
+            "Pentakill": {
+                "group_sizes": [3, 5, 7, 10]
+            },
+            "Punk": {
+                "group_sizes": [2, 4, 6]
+            },
+            "Rapidfire": {
+                "group_sizes": [2, 4, 6]
+            },
+            "Sentinel": {
+                "group_sizes": [2, 4, 6, 8]
+            },
             "Spellweaver": {
                 "group_sizes": [3, 5, 7, 10]
+            },
+            "Superfan": {
+                "group_sizes": [3, 4, 5]
             },
             "True Damage": {
                 "group_sizes": [2, 4, 6, 9]
