@@ -54,25 +54,34 @@ class Calculator:
                     filter_units = [u for u in unit_cluster if duplicate_unit_filter in u.name]
                     if len(filter_units) > 1:
                         continue
-                score = self.evaluate_cluster(unit_cluster)
-                if score and score >= i - unit_score_diff:
-                    clusters.append((score, i, unit_cluster))
+                cluster = Cluster(unit_cluster)
+                cluster.calculate_score(self.basics)
+                if cluster.score and cluster.score >= i - max_score_below_clustersize:
+                    clusters.append(cluster)
 
-        return sorted(clusters, key=lambda y: (-y[0], y[1]))
+        return sorted(clusters, key=lambda y: (-y.score, y.num_units))
+
+
+
+class Cluster:
+    def __init__(self, units) -> None:
+        self.units = units
+        self.score = 0
     
-    def evaluate_cluster(self, unit_cluster):
-        score = self.get_breakpoint_number(unit_cluster)
-        # TODO if any unit doesn't contribute to the score, return 0 (cluster is bad)
-        for unit in unit_cluster:
-            new_cluster = [u for u in unit_cluster if u is not unit]
-            new_score = self.get_breakpoint_number(new_cluster)
+    def calculate_score(self, basics):
+        score = self.calculate_breakpoint_number(basics)
+        # if any unit doesn't contribute to the score, return 0 (cluster is bad)
+        for unit in self.units:
+            new_cluster = [u for u in self.units if u is not unit]
+            new_score = self.calculate_breakpoint_number(basics, new_cluster)
             if new_score >= score:
                 return 0
-        return score
+        self.score = score
 
-    def get_breakpoint_number(self, unit_cluster):
+    def calculate_breakpoint_number(self, basics, alt_cluster=None):
         counters = {}
-        for unit in unit_cluster:
+        units = self.units if alt_cluster is None else alt_cluster
+        for unit in units:
             for trait in unit.traits:
                 if trait.name in counters:
                     counters[trait.name] += 1
@@ -80,6 +89,10 @@ class Calculator:
                     counters[trait.name] = 1
         score = 0
         for trait, counter in counters.items():
-            trait_score = bisect(self.basics.traits[trait].group_sizes, counter)
+            trait_score = bisect(basics.traits[trait].group_sizes, counter)
             score += trait_score
         return score
+
+    @property
+    def num_units(self):
+        return len(self.units)
