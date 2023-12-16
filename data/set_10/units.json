@@ -1,0 +1,21 @@
+{
+    "components": {
+        "units": {
+            "Taric": {
+                "cost": 1,
+                "origins": ["Disco"],
+                "traits": ["Guardian"]
+            }
+        },
+        "origins": {
+            "Disco": {
+                "group_sizes": [3, 4, 5, 6]
+            }
+        },
+        "traits": {
+            "Guardian": {
+                "group_sizes": [2, 4, 6]
+            }
+        }
+    }
+}
