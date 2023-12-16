@@ -67,6 +67,7 @@ class Cluster:
     def __init__(self, units) -> None:
         self.units = units
         self.score = 0
+        self.trait_scores = None
     
     def calculate_score(self, basics):
         score = self.calculate_breakpoint_number(basics)
@@ -83,16 +84,30 @@ class Cluster:
         units = self.units if alt_cluster is None else alt_cluster
         for unit in units:
             for trait in unit.traits:
-                if trait.name in counters:
-                    counters[trait.name] += 1
+                if trait in counters:
+                    counters[trait] += 1
                 else:
-                    counters[trait.name] = 1
+                    counters[trait] = 1
         score = 0
+        trait_scores = {}
         for trait, counter in counters.items():
-            trait_score = bisect(basics.traits[trait].group_sizes, counter)
+            trait_score = bisect(trait.group_sizes, counter)
             score += trait_score
+            if trait_score:
+                trait_scores[trait] = {"score": trait_score, "group_size": counter}
+        if alt_cluster is None:
+            self.trait_scores = counters
         return score
 
     @property
     def num_units(self):
         return len(self.units)
+    
+    @property
+    def costs(self):
+        return sorted(list(set([u.cost for u in self.units])))
+    
+    @property
+    def traits(self):
+        if self.trait_scores:
+            return sorted(list(set([x for x in self.trait_scores])))

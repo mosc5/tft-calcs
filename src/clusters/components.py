@@ -20,3 +20,12 @@ class Trait:
 
     def __repr__(self) -> str:
         return self.name
+    
+    def __hash__(self) -> int:
+        return hash((self.name))
+    
+    def __eq__(self, other) -> int:
+        return (self.name, self.group_sizes) == (other.name, other.group_sizes)
+    
+    def __ne__(self, other) -> int:
+        return not(self == other)
