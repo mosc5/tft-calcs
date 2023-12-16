@@ -239,7 +239,7 @@
             },
             "Ziggs": {
                 "cost": 5,
-                "traits": ["Hyperpop", "Spellweaver"]
+                "traits": ["Hyperpop", "Dazzler"]
             }
         },
         "traits": {
