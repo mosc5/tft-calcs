@@ -9,7 +9,7 @@ def main():
 
     set_basics = SetBasics(json_path)
     calculator = Calculator(set_basics)
-    clusters = calculator.calculate_clusters(duplicate_unit_filter="Akali")
+    clusters = calculator.calculate_clusters(duplicate_unit_filter="Akali", min_size=3, max_size=6)
 
     with open(save_path, "w") as f:
         f.write('\n'.join('{},{},{}'.format(x[0],x[1],";".join(y.name for y in x[2])) for x in clusters))

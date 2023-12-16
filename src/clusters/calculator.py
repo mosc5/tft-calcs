@@ -46,16 +46,16 @@ class Calculator:
     def __init__(self, basics: SetBasics) -> None:
         self.basics : SetBasics = basics
     
-    def calculate_clusters(self, max_size=4, duplicate_unit_filter: str=None):
+    def calculate_clusters(self, min_size=2, max_size=4, duplicate_unit_filter: str=None, max_score_below_clustersize:int=1):
         clusters = []
-        for i in range(2, max_size + 1):
+        for i in range(min_size, max_size + 1):
             for unit_cluster in list(itertools.combinations(self.basics.units.values(), i)):
                 if duplicate_unit_filter is not None:
                     filter_units = [u for u in unit_cluster if duplicate_unit_filter in u.name]
                     if len(filter_units) > 1:
                         continue
                 score = self.evaluate_cluster(unit_cluster)
-                if score:
+                if score and score >= i - unit_score_diff:
                     clusters.append((score, i, unit_cluster))
 
         return sorted(clusters, key=lambda y: (-y[0], y[1]))
