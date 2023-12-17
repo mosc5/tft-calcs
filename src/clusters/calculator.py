@@ -46,7 +46,7 @@ class Calculator:
     def __init__(self, basics: SetBasics) -> None:
         self.basics : SetBasics = basics
     
-    def calculate_clusters(self, min_size=2, max_size=4, duplicate_unit_filter: str=None, max_score_below_clustersize:int=1):
+    def calculate_clusters(self, min_size=2, max_size=4, duplicate_unit_filter: str=None, max_score_below_clustersize:int=1, require_perfect=False):
         clusters = []
         for i in range(min_size, max_size + 1):
             for unit_cluster in list(itertools.combinations(self.basics.units.values(), i)):
@@ -55,9 +55,10 @@ class Calculator:
                     if len(filter_units) > 1:
                         continue
                 cluster = Cluster(unit_cluster)
-                cluster.calculate_score(self.basics)
+                cluster.calculate_score()
                 if cluster.score and cluster.score >= i - max_score_below_clustersize:
-                    clusters.append(cluster)
+                    if not require_perfect or cluster.is_perfect:
+                        clusters.append(cluster)
 
         return sorted(clusters, key=lambda y: (-y.score, y.num_units))
 
@@ -69,17 +70,17 @@ class Cluster:
         self.score = 0
         self.trait_scores = None
     
-    def calculate_score(self, basics):
-        score = self.calculate_breakpoint_number(basics)
+    def calculate_score(self):
+        score = self.calculate_breakpoint_number()
         # if any unit doesn't contribute to the score, return 0 (cluster is bad)
         for unit in self.units:
             new_cluster = [u for u in self.units if u is not unit]
-            new_score = self.calculate_breakpoint_number(basics, new_cluster)
+            new_score = self.calculate_breakpoint_number(new_cluster)
             if new_score >= score:
                 return 0
         self.score = score
 
-    def calculate_breakpoint_number(self, basics, alt_cluster=None):
+    def calculate_breakpoint_number(self, alt_cluster=None):
         counters = {}
         units = self.units if alt_cluster is None else alt_cluster
         for unit in units:
@@ -93,8 +94,7 @@ class Cluster:
         for trait, counter in counters.items():
             trait_score = bisect(trait.group_sizes, counter)
             score += trait_score
-            if trait_score:
-                trait_scores[trait] = {"score": trait_score, "group_size": counter}
+            trait_scores[trait] = {"score": trait_score, "group_size": counter}
         if alt_cluster is None:
             self.trait_scores = trait_scores
         return score
@@ -110,4 +110,21 @@ class Cluster:
     @property
     def traits(self):
         if self.trait_scores:
-            return sorted(list(set([x for x in self.trait_scores])))
+            return sorted(list(set([x for x in self.trait_scores if self.trait_scores[x]["score"]])))
+        
+    @property
+    def is_perfect(self):
+        for trait, scores in self.trait_scores.items():
+            if not scores["score"] or not scores["group_size"] in trait.group_sizes:
+                return False
+        return True
+    
+    # TODO function to creat Clusters from csv, reverse of trait csv string repr
+
+
+def get_perfect_clusters(clusters: list[Cluster]):
+    result = []
+    for cluster in clusters:
+        if cluster.is_perfect:
+            result.append(cluster)
+    return result
